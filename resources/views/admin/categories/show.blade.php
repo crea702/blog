@@ -6,8 +6,9 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Категории</h1>
+                    <div class="col-sm-6 d-flex align-items-center">
+                        <h1 class="m-0 mr-2">{{$category->title}}</h1>
+                        <a href="{{route('admin.category.edit', $category->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -25,40 +26,26 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-2 mb-3">
-                        <a href="{{route ('admin.category.create')}}" class="btn btn-block btn-primary">Добавить</a>
-                    </div>
-                </div>
-
-                <div class="row">
                     <div class="card-body table-responsive p-0 col-4">
                         <table class="table table-hover text-nowrap">
-                            <thead>
-                            <tr>
-                                <th class="col-2">ID</th>
-                                <th>Название</th>
-                                <th>Действие</th>
-                                <th>Действие</th>
-
-                            </tr>
-                            </thead>
                             <tbody>
-                                @foreach($categories as $category)
                                     <tr>
+                                    <td>ID</td>
                                     <td>{{$category->id}}</td>
-                                    <td>{{$category->title}}</td>
-                                    <td><a href="{{route('admin.category.show', $category->id)}}"><i class="far fa-eye"></i></a></td>
-                                    <td><a href="{{route('admin.category.edit', $category->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                     </tr>
-                                @endforeach
+                                    <tr>
+                                        <td>Название</td>
+                                        <td>{{$category->title}}</td>
+                                    </tr>
                             </tbody>
                         </table>
                     </div>
-
-
                     <!-- ./col -->
                 </div>
-                <!-- /.row -->
+
+                <div class="col-2 mb-3">
+                    <a href="{{route ('admin.category.index')}}" class="btn btn-block btn-primary mb-3">Назад</a>
+                </div>
 
                 <!-- /.row (main row) -->
             </div><!-- /.container-fluid -->
