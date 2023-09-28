@@ -18,6 +18,10 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
 
+            $table->string('preview_image')->nullable();
+            $table->string('main_image')->nullable();
+
+
             $table->index('category_id', 'post1_category_idx');
             $table->foreign('category_id', 'post1_category_fk')->on('categories')->references('id');
 

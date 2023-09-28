@@ -6,12 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Post\SroreRequest;
 use App\Models\Post1;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
     public function __invoke(SroreRequest $request)
     {
         $data = $request->validated();
+        $data['preview_image']= Storage::put('/images', $data['preview_image']);
+        $data['main_image']= Storage::put('/images', $data['main_image']);
+
         Post1::firstOrCreate($data);
         return redirect()->route('admin.post.index');
     }
