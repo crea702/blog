@@ -24,7 +24,8 @@ class SroreRequest extends FormRequest
         return [
             'name' =>'required|string',
             'email' =>'required|string|email|unique:users',
-            'password' =>'required|string',
+
+            'role'=>'required|integer'
         ];
     }
 
@@ -36,8 +37,7 @@ class SroreRequest extends FormRequest
             'email.string'=> 'Почта должна быть строкой',
             'email.email'=> 'Это поле не является почтой',
             'email.unique:users'=> 'Пользователь с таким email уже существует',
-            'password.required'=> 'Это поле необходимо заполнить',
-            'password.string'=> 'Пароль должно быть строкой',
+
         ];
     }
 }

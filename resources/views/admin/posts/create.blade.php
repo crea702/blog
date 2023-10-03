@@ -91,6 +91,11 @@
                                 </select>
                             </div>
 
+                            @error('$category_id')
+                            <div class="text-danger">{{"$message"}}</div>
+                            @enderror
+
+
                             {{--multiple select--}}
                             <div class="form-group">
                                 <label>Теги</label>
@@ -98,8 +103,6 @@
                                     @foreach($tagsProverka as $tag)
                                         <option {{is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? 'selected' : ''}}value="{{$tag->id}}">{{$tag->title}}</option>
                                     @endforeach
-
-
                                 </select>
                             </div>
 
