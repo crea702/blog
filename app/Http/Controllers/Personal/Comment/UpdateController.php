@@ -8,6 +8,7 @@ use App\Models\Comment;
 
 
 class UpdateController extends Controller
+
 {
     public function __invoke(UpdateRequest $request, Comment $comment)
 
